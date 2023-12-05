@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user[1] }}'s Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ user[1] }}'s Profile</h1>
+        <p>Email: {{ user[2] }}</p>
+        <p>Age: {{ user[4] }}</p>
+
+        <div class="button-container">
+            <form action="/like-user" method="post">
+                <input type="hidden" name="user_id" value="{{ user[0] }}">
+                <button type="submit">Like</button>
+            </form>
+
+            <form action="/dislike-user" method="post">
+                <input type="hidden" name="user_id" value="{{ user[0] }}">
+                <button type="submit">Dislike</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

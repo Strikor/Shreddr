@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form p {
+            margin-bottom: 10px;
+        }
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="text-center">Register:</h2>
+        <form action="/register" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required min="0">
+            </div>
+           <div class="mb-3">
+    <label for="years_of_experience" class="form-label">Years of Experience:</label>
+    <input type="number" class="form-control" id="years_of_experience" name="years_of_experience" required min="0">
+</div>
+
+       <div class="mb-3">
+    <label for="gender" class="form-label">Gender:</label>
+    <select class="form-select" id="gender" name="gender" required>
+    <option value="">Choose...</option>
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+    <option value="O">Other</option>
+</select>
+
+</div>
+
+            <div class="mb-3">
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" class="form-control" id="location" name="location" required>
+            </div>
+            <div class="mb-3">
+                <label for="bio" class="form-label">Bio:</label>
+                <textarea class="form-control" id="bio" name="bio" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="instruments_played" class="form-label">Instruments Played:</label>
+                <select class="form-select" id="instruments_played" name="instruments_played" multiple required>
+                   <optgroup label="String">
+                <option>Bass</option>
+                <option>Banjo</option>
+                <option>Guitar</option>
+                <option>Harp</option>
+                <option>Violin</option>
+            </optgroup>
+            <optgroup label="Brass">
+                <option>French Horn</option>
+                <option>Trumpet</option>
+                <option>Trombone</option>
+                <option>Tuba</option>
+            </optgroup>
+            <optgroup label="Keyboard">
+                <option>Piano</option>
+                <option>Synth</option>
+
+            </optgroup>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="preferred_genres" class="form-label">Preferred Genres:</label>
+                <select class="form-select" id="preferred_genres" name="preferred_genres" multiple required>
+                    <option>Pop</option>
+            <option>Rock</option>
+            <option>Metal</option>
+            <option>Jazz</option>
+            <option>Hip-Hop</option>
+            <option>Electronic</option>
+            <option>Indie</option>
+            <option>Folk</option>
+                </select>
+            </div>
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
+</body>
+</html>
